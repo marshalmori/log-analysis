@@ -1,5 +1,6 @@
 from database import CursorFromConnectionFromPool
 
+
 class Articles:
     def __init__(self, author, title, slug, lead, body, time, id):
         self.author = author
@@ -27,9 +28,17 @@ class Articles:
     #                    time=articles_data[5],
     #                    id=articles_data[6])
 
+    # @classmethod
+    # def get_articles(cls):
+    #     with CursorFromConnectionFromPool() as cursor:
+    #         cursor.execute('select title, name from articles join authors on articles.author = authors.id')
+    #         articles_data = cursor.fetchall()
+    #         return articles_data
+
     @classmethod
-    def get_articles(cls):
+    def get_three_articles(cls):
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute('select title, name from articles join authors on articles.author = authors.id')
-            articles_data = cursor.fetchall()
-            return articles_data
+            # cursor.execute("select path, count (*) as num from log group by ip;")
+            cursor.execute("select path, count(path) as num from log group by path order by num desc")
+            three_articles_data = cursor.fetchall()
+            return three_articles_data
