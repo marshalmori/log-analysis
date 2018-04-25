@@ -9,26 +9,13 @@ class Log:
         self.time = time
         self.id = id
 
-    # def __repr__(self):
-    #     return "Path {} IP {} Method {} Status {} Time {}".format(
-    #     self.path,
-    #     self.ip,
-    #     self.method,
-    #     self.status,
-    #     self.time
-    #     )
-
     def __repr__(self):
         return "Path --> {}".format(self.path)
 
     @classmethod
-    def get_log(cls):
+    def get_three_articles(cls):
         with CursorFromConnectionFromPool() as cursor:
-            cursor.execute('SELECT * FROM log')
-            log_data = cursor.fetchall()
-            return cls(path=log_data[0],
-                       ip=log_data[1],
-                       method=log_data[2],
-                       status=log_data[3],
-                       time=log_data[4],
-                       id=log_data[5])
+            # cursor.execute("select path, count (*) as num from log group by ip;")
+            cursor.execute("select path, count(path) as num from log group by path order by num desc")
+            three_articles_data = cursor.fetchall()
+            return three_articles_data

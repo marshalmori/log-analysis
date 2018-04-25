@@ -1,6 +1,5 @@
 from database import CursorFromConnectionFromPool
 
-
 class Articles:
     def __init__(self, author, title, slug, lead, body, time, id):
         self.author = author
@@ -12,33 +11,12 @@ class Articles:
         self.id = id
 
     def __repr__(self):
-        return "Autor --> {}".format(self.author)
-
-
-    # @classmethod
-    # def get_articles(cls):
-    #     with CursorFromConnectionFromPool() as cursor:
-    #         cursor.execute('SELECT * FROM articles')
-    #         articles_data = cursor.fetchone()
-    #         return cls(author=articles_data[0],
-    #                    title=articles_data[1],
-    #                    slug=articles_data[2],
-    #                    lead=articles_data[3],
-    #                    body=articles_data[4],
-    #                    time=articles_data[5],
-    #                    id=articles_data[6])
-
-    # @classmethod
-    # def get_articles(cls):
-    #     with CursorFromConnectionFromPool() as cursor:
-    #         cursor.execute('select title, name from articles join authors on articles.author = authors.id')
-    #         articles_data = cursor.fetchall()
-    #         return articles_data
+        return "Título --> {}, Slug --> {}".format(self.title, self.slug)
 
     @classmethod
-    def get_three_articles(cls):
+    def get_title_slug(cls):
         with CursorFromConnectionFromPool() as cursor:
             # cursor.execute("select path, count (*) as num from log group by ip;")
-            cursor.execute("select path, count(path) as num from log group by path order by num desc")
-            three_articles_data = cursor.fetchall()
-            return three_articles_data
+            cursor.execute("select title, slug from articles")
+            title_slug_data = cursor.fetchall()
+            return title_slug_data
