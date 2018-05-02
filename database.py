@@ -21,8 +21,6 @@ class Database():
     def close_all_connection(cls):
         Database.__connection_pool.closeall()
 
-
-
 class CursorFromConnectionFromPool:
     def __init__(self):
         self.connection = None

@@ -6,10 +6,8 @@ class Authors:
         self.bio = bio
         self.id = id
 
-
     def __repr__(self):
         return "Name ---> {}".format(self.name)
-
 
     @classmethod
     def get_author(cls):

@@ -16,7 +16,7 @@ class Articles:
     @classmethod
     def get_title_slug(cls):
         with CursorFromConnectionFromPool() as cursor:
-            # cursor.execute("select path, count (*) as num from log group by ip;")
+            # cursor.execute("select path, count (*) as num from log group by ip")
             cursor.execute("select title, slug from articles")
             title_slug_data = cursor.fetchall()
             return title_slug_data

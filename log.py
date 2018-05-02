@@ -13,7 +13,7 @@ class Log:
         return "Path --> {}".format(self.path)
 
     @classmethod
-    def get_three_articles(cls):
+    def get_all_paths_log(cls):
         with CursorFromConnectionFromPool() as cursor:
             # cursor.execute("select path, count (*) as num from log group by ip;")
             cursor.execute("select path, count(path) as num from log group by path order by num desc")
