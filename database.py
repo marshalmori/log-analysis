@@ -1,6 +1,12 @@
 from psycopg2 import pool
 
 class Database():
+    '''
+    Esta classe cria um Pool para fazer a conexão com o banco de Dados
+    Postgresql. Com basta instanciar o objeto da class e com o método
+    initialise() inicializar o banco. A classe cuida da criação do cursor
+    e do fechamento do banco.
+    '''
     __connection_pool = None
 
     @classmethod

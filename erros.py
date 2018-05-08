@@ -1,6 +1,16 @@
 from database import CursorFromConnectionFromPool
 
 class Erros:
+    '''
+    A classe Erros tem 4 métodos, dentre os quais 3 (create_tb_estatus_erros,
+    create_tb_status_all e create_tb_all_erros) são para criar 3 views
+    com o objetivo de agrupar os valores das datas e a quantidade de requisições
+    HTTP, separando as que foram bem sucedidas das que tiveram erro
+    (404 Not Found). Ja o método select_erros_percentagem serve para selecionar
+    dentre as datas aquela que apresenta erro 404 com porcentagem maior que 1%.
+    '''
+
+    # Cria a view tb_status_erros
     @classmethod
     def create_tb_estatus_erros(cls):
         with CursorFromConnectionFromPool() as cursor:
@@ -10,6 +20,7 @@ class Erros:
                               status='404 NOT FOUND' group by date(time)
                               order by date(time)''')
 
+    # Cria a view tb_status_all
     @classmethod
     def create_tb_status_all(cls):
         with CursorFromConnectionFromPool() as cursor:
@@ -18,6 +29,7 @@ class Erros:
                               count(status) as status_all from log group by
                               date(time) order by date(time)''')
 
+    # Cria a view tb_all_erros
     @classmethod
     def create_tb_all_erros(cls):
         with CursorFromConnectionFromPool() as cursor:
@@ -28,6 +40,7 @@ class Erros:
                               group by mes_dia_ano, status_all, status_erros
                               order by mes_dia_ano''')
 
+    # Seleciona os dias com mais de 1% de requisições 404.
     @classmethod
     def select_erros_percentagem(cls):
         with CursorFromConnectionFromPool() as cursor:
