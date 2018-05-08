@@ -4,8 +4,8 @@ from articles import Articles
 from authors import Authors
 
 Database.initialise(database="news",
-                    user="marshal",
-                    password="marshal",
+                    user="<seu_usuario>",
+                    password="<sua_senha>",
                     host="localhost")
 
 equal_sign = '======================================================='

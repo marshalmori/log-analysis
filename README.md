@@ -8,11 +8,11 @@ Abaixo temos os passos necessários para conseguir rodar esta aplicação:
 
 1. **Instalar o Postgresql** - de acordo com o seu sistema operacional, consulte [este link](https://www.postgresql.org/download/) e instale o Postgresql.
 2. **Download do projeto** - basta fazer um clone, fork ou download desse projeto, direto para sua máquina.
-3. **Download arquivo SQL** - baixe o arquivo [newsdata.sql](https://drive.google.com/file/d/1PQjt7EZUyWXg0JVEBpSqhXt42jXOsUW0/view?usp=sharing) e coloque na pasta principal junto aos demais arquivos.
-4. **Configurar o acesso ao banco** - no projeto principal abra o arquivo `app.py`. Procure pelo código abaixo e substitua os campo `<seu_usuário>` e `<sua_senha>`, respectivamente com usuário e senha configurados no Postgresql.
+3. **Download arquivo SQL** - baixe o arquivo [newsdata.sql](https://drive.google.com/file/d/1PQjt7EZUyWXg0JVEBpSqhXt42jXOsUW0/view?usp=sharing) e coloque na pasta principal.
+4. **Configurar o acesso ao banco** - acesse o projeto principal, abra o arquivo `app.py`. Procure pelo código abaixo e edite os campos `<seu_usuario>` e `<sua_senha>`, respectivamente com usuário e senha configurados no Postgresql.
 
     * `Database.initialise(database="news",
-                        user="<seu_usuário>"",
+                        user="<seu_usuario>"",
                         password="<sua_senha>",
                         host="localhost")`
 
