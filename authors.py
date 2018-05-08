@@ -18,6 +18,3 @@ class Authors:
                               desc''')
             author_data = cursor.fetchall()
             return author_data
-
-# create or replace view status_erros as select to_char(date(time), 'Month DD, YY') as mes_dia_ano, count(status) from log where status='404 NOT FOUND' group by date(time) order by date(time);
-# create or replace view status_all as select to_char(date(time), 'Month DD, YY') as m_d_a, count(status) from log group by date(time) order by date(time);
