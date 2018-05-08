@@ -1,6 +1,6 @@
 
 # Análise de Logs
-Essa aplicação em Python e SQL, faz a análise de logs e informações contidas em algumas tabelas de uma banco de dados Postgres.
+Essa aplicação em Python e SQL faz a análise de logs e informações contidas em algumas tabelas de uma banco de dados Postgres.
 
 ## Instalação
 Abaixo temos os passos necessários para conseguir rodar esta aplicação:
