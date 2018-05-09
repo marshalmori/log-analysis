@@ -8,8 +8,8 @@ from authors import Authors
 
 # Inicializa o banco de dados news
 Database.initialise(database="news",
-                    user="marshal",
-                    password="marshal",
+                    user="<seu_usuario>",
+                    password="<sua_senha>",
                     host="localhost")
 
 # Variáveis utilizadas nos métodos
