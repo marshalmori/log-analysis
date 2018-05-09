@@ -1,4 +1,8 @@
+#!/usr/bin/env python3
+# coding=utf-8
+
 from database import CursorFromConnectionFromPool
+
 
 class Authors:
     '''
@@ -19,7 +23,7 @@ class Authors:
                                      articles join log on articles.slug =
                                      substring(path from 10) group by author
                                      order by num desc limit 4''')
-                                     
+
     # Seleciona os autores dos artigos mais populares
     @classmethod
     def get_author(cls):
